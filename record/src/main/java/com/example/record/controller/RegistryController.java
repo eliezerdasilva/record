@@ -1,5 +1,5 @@
 package com.example.record.controller;
 
-public class Registry {
+public class RegistryController {
 
 }
