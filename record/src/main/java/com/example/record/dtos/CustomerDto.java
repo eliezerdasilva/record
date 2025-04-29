@@ -1,8 +1,9 @@
-package com.example.record.model;
+package com.example.record.dtos;
 
 import org.hibernate.validator.constraints.Length;
 
-import jakarta.annotation.Generated;
+import com.example.record.model.Customer;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +26,7 @@ import lombok.Setter;
 @Table(name="customer")
 @Getter
 @Setter
-public class Customer {
+public class CustomerDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id; 

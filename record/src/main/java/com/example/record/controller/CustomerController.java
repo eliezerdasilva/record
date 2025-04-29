@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.record.dtos.CustomerDto;
 import com.example.record.model.Customer;
 import com.example.record.service.CustomerService;
 
+import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 
 @RestController
@@ -36,8 +38,8 @@ public class CustomerController {
 	}
 	@PostMapping("/create")
 	@ResponseBody
-	public Customer create(@RequestBody Customer customer) {
-		return customerService.createCustomer(customer);
+	public Customer create(@RequestBody @Valid CustomerDto customerDto) {
+		return customerService.createCustomer(customerDto);
 	}
 	
 	@GetMapping("/greet/{id}")

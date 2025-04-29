@@ -1,5 +1,5 @@
 package com.example.record.dtos;
 
-public class Registry {
+public class UserDto {
 
 }

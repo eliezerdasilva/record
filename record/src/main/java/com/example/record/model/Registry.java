@@ -18,6 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -25,6 +26,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name="resgitry")
+@ToString
 public class Registry {
 	
 	@Id
