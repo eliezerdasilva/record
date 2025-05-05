@@ -1,8 +1,6 @@
 package com.example.record.model;
 
-import java.util.Date;
-
-import org.hibernate.validator.constraints.Length;
+import java.time.LocalTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,8 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,17 +22,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="resgitry")
+@Table(name="registry")
 @ToString
 public class Registry {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id; 
-
+	private Long id; 
 
     @Column(name = "data")
-    private Date data;
+    private LocalTime data;
 
     @Column(name = "value")
     private Double value;
@@ -46,8 +42,8 @@ public class Registry {
     @Column(name = "collection_point")
     private String collectionPoint;
     
-    @Column(name = "delevery_location")
-    private String deleveryLocation;
+    @Column(name = "delivery_location")
+    private String deliveryLocation;
 
     @ManyToOne
     @JoinColumn(name = "customer_id") 

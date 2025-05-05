@@ -1,38 +1,33 @@
 package com.example.record.dtos;
 
-import org.hibernate.validator.constraints.Length;
+import java.time.LocalTime;
 
 import com.example.record.model.Customer;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
 @Builder
 @Getter
 @Setter
-public class CustomerDto {
+public class VehicleDto {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id; 
-	
+	private Long id; 
 	@NotBlank
     @NotNull
-    @Length(min = 5, max = 200)
-	private String name; 
+	private String plate;
 	@NotBlank
     @NotNull
-    @Length(min = 11)
-	private String telefone; 
+	private String renavam;
+	@NotBlank
+    @NotNull
+	private String nameVehicle; 
 }

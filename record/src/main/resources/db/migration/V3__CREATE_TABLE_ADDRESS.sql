@@ -1,0 +1,9 @@
+CREATE TABLE address (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    cep INT NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    neighborhood VARCHAR(100) NOT NULL,
+    road VARCHAR(255) NOT NULL,
+    house_number VARCHAR(50) NOT NULL
+);

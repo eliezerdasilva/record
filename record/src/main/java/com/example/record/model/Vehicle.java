@@ -1,8 +1,6 @@
-package com.example.record.dtos;
+package com.example.record.model;
 
-import org.hibernate.validator.constraints.Length;
 
-import com.example.record.model.Customer;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,25 +12,28 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.ToString;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-@Getter
-@Setter
-public class CustomerDto {
+@Entity
+@Table(name="vehicle")
+@ToString
+public class Vehicle {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id; 
-	
+	private Long id; 
 	@NotBlank
     @NotNull
-    @Length(min = 5, max = 200)
-	private String name; 
+	private String plate;
 	@NotBlank
     @NotNull
-    @Length(min = 11)
-	private String telefone; 
+	private String renavam;
+	@NotBlank
+    @NotNull
+	private String nameVehicle; 
 }
