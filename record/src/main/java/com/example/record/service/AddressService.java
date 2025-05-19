@@ -56,6 +56,7 @@ public class AddressService {
 
 	public AddressDto updateAddress(Long id, @Valid AddressDto addressDto) {
 		addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Endereço não encontrado"));
+		addressDto.setId(id);
 		AddressDto addressDto2 = addressMapper.toDto(addressRepository.save(addressMapper.toEntity(addressDto)));
 		return addressDto2;
 	}

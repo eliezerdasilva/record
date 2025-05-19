@@ -1,13 +1,11 @@
 package com.example.record.dtos;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import org.hibernate.validator.constraints.Length;
 
 import com.example.record.enums.UserCategory;
 import com.example.record.model.Address;
-import com.example.record.model.Customer;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.EnumType;

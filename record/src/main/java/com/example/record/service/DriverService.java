@@ -42,8 +42,8 @@ public class DriverService {
 	}
 
 	public List<DriverDto> getAllDriver() {
-		List<Driver> addresses = driverRepository.findAll();
-		return addresses.stream().map(driverMapper::toDto).collect(Collectors.toList());
+		List<Driver> driveres = driverRepository.findAll();
+		return driveres.stream().map(driverMapper::toDto).collect(Collectors.toList());
 	}
 
 	public DriverDto createDriver(DriverDto driverDto) {
@@ -54,15 +54,16 @@ public class DriverService {
 	}
 
 	public void deleteDriver(Long id) {
-		Driver Driver = driverRepository.findById(id)
+		Driver driver = driverRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException("Motorista não encontrado"));
-		driverRepository.delete(Driver);
+		driverRepository.delete(driver);
 
 	}
 
-	public DriverDto updateDriver(Long id, @Valid DriverDto DriverDto) {
+	public DriverDto updateDriver(Long id, @Valid DriverDto driverDto) {
 		driverRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Motorista não encontrado"));
-		DriverDto newDriver = driverMapper.toDto(driverRepository.save(driverMapper.toEntity(DriverDto)));
+		driverDto.setId(id);
+		DriverDto newDriver = driverMapper.toDto(driverRepository.save(driverMapper.toEntity(driverDto)));
 		return newDriver;
 	}
 }

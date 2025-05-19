@@ -11,5 +11,5 @@ public interface DriverMapper {
 
 	DriverDto toDto(Driver driver);
 
-    Driver toEntity(DriverDto driverDtooductDto);
+    Driver toEntity(DriverDto driverDto);
 }

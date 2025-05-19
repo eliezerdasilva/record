@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Length;
 import com.example.record.enums.UserCategory;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -44,9 +45,11 @@ public class User {
 	private UserCategory userCategory;
 
 	@NotNull
+	@Column(name = "cpf", unique = true)
 	private int cpf;
 
 	@NotNull
+	@Column(name = "email", unique = true)
 	private String email;
 
 	@NotNull

@@ -2,7 +2,7 @@ package com.example.record.model;
 
 import org.hibernate.validator.constraints.Length;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,6 +40,7 @@ public class Customer {
 	private String fone; 
 	@NotBlank
     @NotNull
+    @Column(unique = true)
 	private String cnpj; 
 	@NotBlank
     @NotNull

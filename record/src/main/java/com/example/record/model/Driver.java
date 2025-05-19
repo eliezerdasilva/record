@@ -4,7 +4,7 @@ package com.example.record.model;
 
 import com.example.record.enums.TypeQualification;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -26,15 +26,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "user")
+@Table(name = "driver")
 public class Driver {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	@OneToOne
-	@JoinColumn(name = "user_id", referencedColumnName = "id")
+	@JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
 	private User user;
+
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private TypeQualification typeQualification;

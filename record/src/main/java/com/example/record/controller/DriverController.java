@@ -17,18 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.record.dtos.DriverDto;
 import com.example.record.service.DriverService;
-import com.example.record.service.driverService;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(path = "api/address")
+@RequestMapping(path = "api/driver")
 public class DriverController {
-
+	@Autowired
 	private final DriverService driverService;
 	
-	@Autowired
+	
 	public DriverController(DriverService driverService) {
 		this.driverService = driverService;
 	}

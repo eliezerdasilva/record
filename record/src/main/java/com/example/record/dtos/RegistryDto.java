@@ -1,8 +1,9 @@
 package com.example.record.dtos;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 import com.example.record.model.Customer;
+import com.example.record.model.Driver;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class RegistryDto {
 	private Long id; 
 
     @Column(name = "data")
-    private LocalTime data;
+    private LocalDate data;
 
     @Column(name = "value")
     private Double value;
@@ -42,4 +43,7 @@ public class RegistryDto {
     @ManyToOne
     @JoinColumn(name = "customer_id") 
     private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "driver_id", nullable = false)
+    private Driver driver;
 }

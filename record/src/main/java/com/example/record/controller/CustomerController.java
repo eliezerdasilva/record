@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.record.dtos.CustomerDto;
 import com.example.record.service.CustomerService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 
-
+@RestController
 @RequestMapping(path = "api/customer")
 public class CustomerController {
-	
-	private final CustomerService customerService;
 	@Autowired
+	private final CustomerService customerService;
+	
 	public CustomerController(CustomerService customerService) {
 		this.customerService = customerService;
 	}

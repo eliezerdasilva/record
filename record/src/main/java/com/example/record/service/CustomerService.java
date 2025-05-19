@@ -61,6 +61,7 @@ public class CustomerService {
 
 	public CustomerDto updateCustomer(Long id, @Valid CustomerDto customerDto) {
 		customerRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
+		customerDto.setId(id);
 		CustomerDto newCustomer = customerMapper.toDto(customerRepository.save(customerMapper.toEntity(customerDto)));
 		return newCustomer;
 	}
