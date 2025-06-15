@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS DRIVER (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL UNIQUE,
+    type_qualification VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_qualification_user FOREIGN KEY (user_id) REFERENCES user(id)
+);
