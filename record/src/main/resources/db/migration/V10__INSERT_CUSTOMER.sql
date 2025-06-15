@@ -1,0 +1,12 @@
+INSERT INTO CUSTOMER (name, fone, cnpj, company_regular)
+VALUES
+    ('Empresa C', '1122334455', '12345678000198', TRUE),
+    ('Empresa D', '6677889900', '98765432000188', FALSE),
+    ('Empresa E', '3344556677', '11223344000111', TRUE),
+    ('Empresa F', '1231231231', '22334455000122', TRUE),
+    ('Empresa G', '5554443333', '99887766000133', FALSE),
+    ('Empresa H', '7778889999', '11223344000100', TRUE),
+    ('Empresa I', '9998887777', '99887766000199', TRUE),
+    ('Empresa J', '4445556666', '66554433000144', FALSE),
+    ('Empresa K', '8887776666', '55443322000155', TRUE),
+    ('Empresa L', '2223334444', '77665544000166', TRUE);
