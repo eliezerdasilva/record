@@ -12,16 +12,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 29))
     ));
 
-// Injeção de dependência
+// Injeção de dependência - Repositories e Services
 builder.Services.AddScoped<IRegistryRepository, RegistryRepository>();
-
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>(); // Não esqueça disso
 builder.Services.AddScoped<RegistryService>();
+builder.Services.AddScoped<CustomerService>();
 
-// Add Controllers e Swagger
+// Adiciona controllers e Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.WebHost.UseUrls("http://localhost:5287", "https://localhost:7287");
 
+// Configura as URLs da aplicação
+builder.WebHost.UseUrls("http://localhost:5287", "https://localhost:7287");
 
 var app = builder.Build();
 

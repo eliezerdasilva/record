@@ -15,34 +15,38 @@ namespace RecordApi.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Registry>> GetAllAsync()
+        public async Task<List<Registry>> GetAllAsync()
         {
             return await _context.Registries.ToListAsync();
         }
 
-        public async Task<Registry> GetByIdAsync(long id)
+
+        public async Task<Registry?> GetByIdAsync(long id)
         {
-            return await _context.Registries.FindAsync(id);
+            return await _context.Registries
+                                  .Include(r => r.Customer)
+                                  .FirstOrDefaultAsync(r => r.Id == id);
         }
 
         public async Task AddAsync(Registry registry)
         {
             await _context.Registries.AddAsync(registry);
-        }
-
-        public void Update(Registry registry)
-        {
-            _context.Registries.Update(registry);
-        }
-
-        public void Remove(Registry registry)
-        {
-            _context.Registries.Remove(registry);
-        }
-
-        public async Task SaveChangesAsync()
-        {
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateAsync(Registry registry)
+        {
+            _context.Registries.Update(registry);
+            await _context.SaveChangesAsync();
+        }
+
+
+        public async Task RemoveAsync(Registry registry)
+        {
+            _context.Registries.Remove(registry);
+            await _context.SaveChangesAsync();
+        }
+
+       
     }
 }

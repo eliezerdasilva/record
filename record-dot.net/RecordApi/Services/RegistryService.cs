@@ -7,30 +7,59 @@ namespace RecordApi.Services
 {
     public class RegistryService
     {
-        private readonly IRegistryRepository registryRepository;
+        private readonly IRegistryRepository _repository;
 
         public RegistryService(IRegistryRepository repository)
         {
-            registryRepository = repository;
+            _repository = repository;
         }
 
         public async Task<List<Registry>> ListarRegistry()
         {
-            var registries = await registryRepository.GetAllAsync();
+            var registries = await _repository.GetAllAsync();
             return registries.ToList();
         }
 
-        public async Task<Registry> CriarRegistry(Registry registry)
+        public async Task<Registry?> BuscarPorId(long id)
         {
-            var registryNew = new Registry
+            return await _repository.GetByIdAsync(id);
+        }
+
+        public async Task CriarRegistry(Registry registry)
+        {
+            await _repository.AddAsync(registry);
+        }
+
+        public async Task<bool> AtualizarRegistry(Registry registry)
+        {
+            var existing = await _repository.GetByIdAsync(registry.Id);
+            if (existing == null)
             {
-                Description = registry.Description,
-                Date = registry.Date
+                return false;
+            }
 
-            };
+            // Atualizar manualmente os campos (opcional)
+            existing.Data = registry.Data;
+            existing.Value = registry.Value;
+            existing.Paid = registry.Paid;
+            existing.CollectionPoint = registry.CollectionPoint;
+            existing.DeliveryLocation = registry.DeliveryLocation;
+            existing.CustomerId = registry.CustomerId;
 
-            await registryRepository.AddAsync(registryNew);
-            return registryNew;
+            await _repository.UpdateAsync(existing);
+            return true;
+        }
+
+        public async Task<bool> RemoverRegistry(long id)
+        {
+            var existing = await _repository.GetByIdAsync(id);
+            if (existing == null)
+            {
+                return false;
+            }
+
+            await _repository.RemoveAsync(existing);
+            return true;
         }
     }
 }
