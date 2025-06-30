@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eliez\\OneDrive\\Documentos\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj": {}
+    "C:\\Users\\frete\\Documents\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eliez\\OneDrive\\Documentos\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj": {
+    "C:\\Users\\frete\\Documents\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eliez\\OneDrive\\Documentos\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj",
+        "projectUniqueName": "C:\\Users\\frete\\Documents\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj",
         "projectName": "RecordApi",
-        "projectPath": "C:\\Users\\eliez\\OneDrive\\Documentos\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj",
-        "packagesPath": "C:\\Users\\eliez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eliez\\OneDrive\\Documentos\\GitHub\\record\\record-dot.net\\RecordApi\\obj\\",
+        "projectPath": "C:\\Users\\frete\\Documents\\GitHub\\record\\record-dot.net\\RecordApi\\RecordApi.csproj",
+        "packagesPath": "C:\\Users\\frete\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\frete\\Documents\\GitHub\\record\\record-dot.net\\RecordApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\eliez\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\frete\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"

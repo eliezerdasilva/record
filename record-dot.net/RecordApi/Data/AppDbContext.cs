@@ -20,14 +20,13 @@ namespace RecordApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // --- Relacionamento 1:1 entre User e Address ---
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.Address)      // User tem um Address
-                .WithOne()                    // Address não tem navegação para User (unidirecional)
-                .HasForeignKey<Address>(a => a.Id) // FK em Address (opção mais comum)
-                .OnDelete(DeleteBehavior.Cascade); // Opcional: deleta Address se User for deletado
+ modelBuilder.Entity<User>()
+        .HasOne(u => u.Address)
+        .WithMany()
+        .HasForeignKey("endereco_id") // Nome da coluna FK no banco
+        .IsRequired();
 
-            // --- Configurações adicionais para User ---
+
             modelBuilder.Entity<User>(entity =>
             {
                 // Índices únicos
@@ -41,7 +40,7 @@ namespace RecordApi.Data
                 entity.Property(u => u.DateBirth).IsRequired();
             });
 
-            
+
         }
     }
 }

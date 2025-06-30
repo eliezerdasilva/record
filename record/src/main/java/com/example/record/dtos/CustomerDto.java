@@ -20,7 +20,7 @@ import lombok.Setter;
 public class CustomerDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id; 
+	private Long id; 
 	
 	@NotBlank
     @NotNull

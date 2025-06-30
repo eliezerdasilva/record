@@ -14,11 +14,13 @@ namespace RecordApi.Repositories
         {
             _context = context;
         }
-
         public async Task<List<Registry>> GetAllAsync()
         {
-            return await _context.Registries.ToListAsync();
+            return await _context.Registries
+                .Include(r => r.Customer)  // Inclui os dados do Customer relacionados
+                .ToListAsync();
         }
+
 
 
         public async Task<Registry?> GetByIdAsync(long id)
@@ -47,6 +49,6 @@ namespace RecordApi.Repositories
             await _context.SaveChangesAsync();
         }
 
-       
+
     }
 }

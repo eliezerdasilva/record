@@ -15,8 +15,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Injeção de dependência - Repositories e Services
 builder.Services.AddScoped<IRegistryRepository, RegistryRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>(); // Não esqueça disso
+builder.Services.AddScoped<IUserRepository, UserRepository>(); // Não esqueça disso
+builder.Services.AddScoped<IAddressRepository, AddressRepository>(); // Não esqueça disso
 builder.Services.AddScoped<RegistryService>();
 builder.Services.AddScoped<CustomerService>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<AddressService>();
 
 // Adiciona controllers e Swagger
 builder.Services.AddControllers();

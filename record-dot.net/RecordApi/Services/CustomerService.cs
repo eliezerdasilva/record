@@ -12,7 +12,7 @@ public class CustomerService
         _repository = repository;
     }
 
-    public Task<List<Customer?>> ListAllAsync()
+    public Task<List<Customer>> ListAllAsync()
     {
         return _repository.GetAllAsync();
     }

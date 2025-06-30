@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace RecordApi.Models
 {
@@ -28,6 +29,7 @@ namespace RecordApi.Models
 
         [ForeignKey("Customer")]
         [Column("customer_id")]
+        [JsonIgnore]
         public long CustomerId { get; set; }
 
         public Customer? Customer { get; set; }

@@ -18,13 +18,19 @@ namespace RecordApi.Repositories
 
         public async Task<List<User>> GetAllAsync()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users
+                .Include(u => u.Address)  // Inclui os dados do Address relacionados
+                .ToListAsync();
         }
 
-        public async Task<User?> GetByIdAsync(long id)
+
+        public Task<User?> GetByIdAsync(long id)
         {
-            return await _context.Users.FindAsync(id);
+            return _context.Users
+                .Include(u => u.Address)    // <-- INCLUINDO o Address na consulta
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
+
 
         public async Task<User?> GetByEmailAsync(string email)
         {

@@ -50,8 +50,12 @@ namespace RecordApi.Controllers
 
         // POST: api/user
         [HttpPost]
-        public async Task<ActionResult<User>> Create(User user)
+        public async Task<ActionResult<User>> Create([FromBody]User user)
         {
+           Console.WriteLine($"Nome: {user.Name}, CPF: {user.Cpf}, Email: {user.Email}");
+Console.WriteLine($"Endereço: {user.Address.Road}, {user.Address.HouseNumber} - {user.Address.City}");
+
+
             var createdUser = await _userService.CreateAsync(user);
             return CreatedAtAction(nameof(GetById), new { id = createdUser.Id }, createdUser);
         }

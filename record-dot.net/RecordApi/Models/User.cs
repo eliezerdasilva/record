@@ -1,37 +1,44 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using RecordApi.Models;
+using System.Text.Json.Serialization;
 
 namespace YourNamespace.Models
 {
-   
     [Table("user")]
     public class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
         public long Id { get; set; }
 
         [Required]
         [StringLength(200, MinimumLength = 5)]
-        public string Name { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
 
-        
+        [Required]
+        [Column("User_category")]
+        [JsonPropertyName("userCategory")]
+        public string UserCategory { get; set; } = string.Empty;
+
         [Required]
         [Column("cpf")]
-        public int Cpf { get; set; } // Atenção: Cpf como int pode ser problemático se for número grande, considere string
+        [JsonPropertyName("cpf")]
+        public int Cpf { get; set; }
 
         [Required]
         [EmailAddress]
         [Column("email")]
-        public string Email { get; set; }
+        [JsonPropertyName("email")]
+        public string Email { get; set; } = string.Empty;
 
         [Required]
+        [Column("Date_Birth")]
+        [JsonPropertyName("dateBirth")]
         public DateTime DateBirth { get; set; }
 
-        [Required]
-        public Address Address { get; set; } // Relacionamento 1:1 será configurado no DbContext
- 
+        [ForeignKey("endereco_id")] // Nome da coluna no banco
+        public Address Address { get; set; } = new Address();
     }
 }
