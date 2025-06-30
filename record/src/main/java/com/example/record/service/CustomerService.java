@@ -34,6 +34,7 @@ public class CustomerService {
 			throw new IllegalArgumentException("ID inválido");
 		}
 		Optional<Customer> customer = customerRepository.findById(id);
+		
 		if (!customer.isPresent()) {
 			throw new IllegalArgumentException("Não ha registro");
 		}
@@ -41,8 +42,9 @@ public class CustomerService {
 	}
 
 	public List<CustomerDto> getAllCustomer() {
-		List<Customer> addresses = customerRepository.findAll();
-		return addresses.stream().map(customerMapper::toDto).collect(Collectors.toList());
+		List<Customer> customer = customerRepository.findAll();
+		System.out.println(customer);
+		return customer.stream().map(customerMapper::toDto).collect(Collectors.toList());
 	}
 
 	public CustomerDto createCustomer(CustomerDto customerDto) {

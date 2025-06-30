@@ -53,6 +53,7 @@ public class CustomerController {
 		if (customerDto == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
+		
 		return ResponseEntity.status(HttpStatus.OK).body(customerDto);
 	}
 	@PutMapping("/{id}")

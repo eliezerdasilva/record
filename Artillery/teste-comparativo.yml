@@ -1,0 +1,52 @@
+config:
+  target: "http://localhost:8080"  # Default target
+  tls:
+    rejectUnauthorized: false
+  phases:
+    - duration: 10
+      arrivalRate: 5
+      name: "Fase inicial"
+    - duration: 30
+      arrivalRate: 10
+      rampTo: 20
+      name: "Aumento progressivo"
+
+scenarios:
+  - name: "Testar API Java"
+    flow:
+      - get:
+          url: "/api/user"
+      - get:
+          url: "/api/user/1"
+      - get:
+          url: "/api/registry"
+      - get:
+          url: "/api/registry/1"
+      - get:
+          url: "/api/address"
+      - get:
+          url: "/api/address/1"
+      - get:
+          url: "/api/customer"
+      - get:
+          url: "/api/customer/1"
+
+  - name: "Testar API .NET"
+    target: "https://localhost:7287"  # Sobrescreve o target default
+    flow:
+      - get:
+          url: "/api/user"
+      - get:
+          url: "/api/user/1"
+      - get:
+          url: "/api/registry"
+      - get:
+          url: "/api/registry/1"
+      - get:
+          url: "/api/address"
+      - get:
+          url: "/api/address/1"
+      - get:
+          url: "/api/customer"
+      - get:
+          url: "/api/customer/1"

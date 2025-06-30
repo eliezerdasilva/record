@@ -2,7 +2,7 @@ package com.example.record.dtos;
 
 import org.hibernate.validator.constraints.Length;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,7 +20,7 @@ import lombok.Setter;
 public class CustomerDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id; 
+	private Long id; 
 	
 	@NotBlank
     @NotNull
@@ -29,5 +29,12 @@ public class CustomerDto {
 	@NotBlank
     @NotNull
     @Length(min = 11)
-	private String telefone; 
+	private String fone; 
+	@NotBlank
+    @NotNull
+    @Column(unique = true)
+	private String cnpj; 
+	@NotBlank
+    @NotNull
+	private boolean companyRegular;
 }

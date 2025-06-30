@@ -1,0 +1,3 @@
+
+Tem que rodar esse comando
+dotnet dev-certs https --trust
